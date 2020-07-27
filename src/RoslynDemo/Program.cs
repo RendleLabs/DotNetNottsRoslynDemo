@@ -13,11 +13,11 @@ namespace RoslynDemo
             workspace.LoadMetadataForReferencedProjects = true;
             var solution = await workspace.OpenSolutionAsync(args[0]);
 
-            // await SyntaxQueryDemo.ListAsync(solution);
+            await SyntaxQueryDemo.ListAsync(solution);
             // await SyntaxVisitorDemo.ListAsync(solution);
             // await SymbolDemo.ListAsync(solution);
             // await DependenciesDemo.ListAllUsedTypes(solution);
-            await RewriterDemo.UpshiftAllStrings(workspace);
+            // await RewriterDemo.UpshiftAllStrings(workspace);
         }
     }
 }

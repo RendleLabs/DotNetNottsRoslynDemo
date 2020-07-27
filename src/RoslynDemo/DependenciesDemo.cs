@@ -11,6 +11,7 @@ namespace RoslynDemo
     {
         public static async Task ListAllUsedTypes(Solution solution)
         {
+            var typeSet = new HashSet<string>();
             foreach (var project in solution.Projects)
             {
                 var compilation = await project.GetCompilationAsync();
@@ -28,9 +29,14 @@ namespace RoslynDemo
 
                     foreach (var namedTypeSymbol in GetTypes(root, model).Distinct())
                     {
-                        Console.WriteLine($"{namedTypeSymbol.ContainingNamespace}.{namedTypeSymbol.Name}");
+                        typeSet.Add($"{namedTypeSymbol.ContainingNamespace}.{namedTypeSymbol.Name}");
                     }
                 }
+            }
+
+            foreach (var type in typeSet.OrderBy(x => x))
+            {
+                Console.WriteLine(type);
             }
         }
         

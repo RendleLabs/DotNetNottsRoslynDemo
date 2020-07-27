@@ -9,7 +9,7 @@ namespace RoslynDemo
     {
         public static async Task ListAsync(Solution solution)
         {
-            var walker = new ListTypesVisitor();
+            var walker = new ListTypesWalker();
 
             foreach (var document in solution.Projects.SelectMany(p => p.Documents))
             {

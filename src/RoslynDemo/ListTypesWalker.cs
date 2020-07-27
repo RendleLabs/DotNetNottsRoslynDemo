@@ -4,7 +4,7 @@ using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace RoslynDemo
 {
-    public class ListTypesVisitor : CSharpSyntaxWalker
+    public class ListTypesWalker : CSharpSyntaxWalker
     {
         public override void VisitClassDeclaration(ClassDeclarationSyntax node)
         {

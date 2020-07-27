@@ -26,13 +26,11 @@ namespace RoslynDemo
 
                     foreach (var typeDeclarationSyntax in root.DescendantNodes().OfType<BaseTypeDeclarationSyntax>())
                     {
-                        var symbol = model.GetDeclaredSymbol(typeDeclarationSyntax);
-                        if (symbol is null) continue;
-                        Console.WriteLine($"{symbol.ContainingNamespace}.{symbol.Name}");
-
-                        if (symbol is INamedTypeSymbol namedTypeSymbol)
+                        if (model.GetDeclaredSymbol(typeDeclarationSyntax) is INamedTypeSymbol symbol)
                         {
-                            foreach (var methodSymbol in namedTypeSymbol.GetMembers().OfType<IMethodSymbol>())
+                            Console.WriteLine($"{symbol.TypeKind}: {symbol.ContainingNamespace}.{symbol.Name}");
+                            
+                            foreach (var methodSymbol in symbol.GetMembers().OfType<IMethodSymbol>())
                             {
                                 if (!methodSymbol.IsImplicitlyDeclared)
                                 {

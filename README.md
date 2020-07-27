@@ -1,3 +1,3 @@
-# DotNetOxfordRoslynDemo
+# DotNetNotts Roslyn demo code
 
-This is the demo code from my DotNet Oxford talk on 21st April 2020.
+This is the demo code from my DotNet Notts talk on July 27th 2020
